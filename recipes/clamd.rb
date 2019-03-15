@@ -21,7 +21,7 @@
 include_recipe "#{cookbook_name}::services"
 
 supp_groups = node['clamav']['allow_supplementary_groups']
-template "#{node['clamav']['conf_dir']}/clamd.conf" do
+template "#{node['clamav']['clamd']['conf_dir']}/#{node['clamav']['clamd']['config_name']}" do
   owner node['clamav']['user']
   group node['clamav']['group']
   source 'clamd.conf.erb'
