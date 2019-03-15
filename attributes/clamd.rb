@@ -25,11 +25,14 @@ default['clamav']['clamd']['enabled'] = false
 case node['platform_family']
 when 'rhel'
   default['clamav']['clamd']['service'] = 'clamd'
+  default['clamav']['clamd']['conf_dir'] = '/etc'
 when 'debian'
   default['clamav']['clamd']['service'] = 'clamav-daemon'
+  default['clamav']['clamd']['conf_dir'] = '/etc/clamav'
 end
 
 # Options - clamd.conf
+default['clamav']['clamd']['config_name'] = 'clamd.conf'
 default['clamav']['clamd']['log_file'] = '/var/log/clamav/clamd.log'
 default['clamav']['clamd']['logrotate_frequency'] = 'daily'
 default['clamav']['clamd']['logrotate_rotations'] = 7
