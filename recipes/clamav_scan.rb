@@ -18,11 +18,14 @@
 # limitations under the License.
 #
 
-cookbook_file node['clamav']['scan']['script']['path'] do
-  source 'clamav-scan.sh'
+template node['clamav']['scan']['script']['path'] do
+  source 'clamav-scan.sh.erb'
   owner node['clamav']['user']
   group node['clamav']['group']
   mode '0555'
+  variables(
+    config_path: "#{node['clamav']['clamd']['conf_dir']}/#{node['clamav']['clamd']['config_name']}"
+  )
   only_if { node['clamav']['scan']['script']['enable'] }
 end
 
