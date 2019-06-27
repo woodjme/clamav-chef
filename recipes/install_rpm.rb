@@ -65,7 +65,7 @@ template "/etc/init.d/#{node['clamav']['clamd']['service']}" do
   mode '0755'
   action :create
   variables(
-    clamd_conf: "#{node['clamav']['conf_dir']}/clamd.conf",
+    clamd_conf: "#{node['clamav']['clamd']['conf_dir']}/#{node['clamav']['clamd']['config_name']}",
     clamd_pid: node['clamav']['clamd']['pid_file'],
     clamd_bin_dir: '/usr/sbin'
   )
