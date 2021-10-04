@@ -8,7 +8,7 @@ description       'Installs/configures ClamAV'
 long_description  'Installs/configures ClamAV'
 version           '1.3.0'
 
-depends           'logrotate', '~> 1.0'
+depends           'logrotate', '>= 1.0'
 depends           'yum', '~> 3.0'
 depends           'yum-epel', '~> 0.2'
 depends           'apt', '~> 2.1'
